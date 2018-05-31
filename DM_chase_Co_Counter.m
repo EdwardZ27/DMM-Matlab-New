@@ -27,7 +27,7 @@ for FOLD_Claim_variables = 1
 
     for i = 1:c
         for j = 1:DM_stage
-            if j<=50                      %增加if判断使一部分膜透量为零
+            if j<50                      %增加if判断使一部分膜透量为零
                 Jj_DM1(j,i) = 0;
             else
                 Jj_DM1(j,i)  = DM_Profile(6+3*c+i,j)/829561.4;
