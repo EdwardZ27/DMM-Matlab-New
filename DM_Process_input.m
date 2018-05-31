@@ -3,6 +3,7 @@ function f = DM_Process_input(DM_Feed,Pp1,Pp2,Nf_DM1,Nf_DM2)
 global c
 for FOLD_Input_data = 1
     c = 3;
+    Ji_DM0 = [ 0;  0;   0   ];   %New:膜的一部分透量想设为零
     Ji_DM1 = [ 520;  195;   7   ];   %HM,GPU 
     Ji_DM2 = [ 195; 1580; 130   ];   %CO2M,GPU 
     L = 1;
