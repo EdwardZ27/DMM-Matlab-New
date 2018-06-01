@@ -27,7 +27,11 @@ for FOLD_Claim_variables = 1
 
     for i = 1:c
         for j = 1:DM_stage
-            Jj_DM1(j,i)  = DM_Profile(6+3*c+i,j)/829561.4;
+            if j<51
+                Jj_DM1(j,i)  = 0.000000001;      %New:透量改成这个，不会报错
+            else
+                Jj_DM1(j,i)  = DM_Profile(6+3*c+i,j)/829561.4;
+            end
             Jj_DM2(j,i)  = DM_Profile(6+4*c+i,j)/829561.4;
             vj_DM1_initial(j,i)  = DM_Profile(1,j)*DM_Profile(3+i,j);
             vj_DM2_initial(j,i)  = DM_Profile(2,j)*DM_Profile(3+c+i,j);

@@ -11,7 +11,11 @@ global  c
         
         v1 = viscosity(Profile_P(4:3+c,DM_stage+1-j));
         v2 = viscosity(Profile_P(4+c:3+2*c,j));
-        Profile_P(5+3*c,DM_stage+1-j) = pressuredrop(1,Profile_P(5+3*c,DM_stage+1-j+1),Profile_P(1,DM_stage+1-j),v1,dz);  
+        if j<50
+            Profile_P(5+3*c,DM_stage+1-j) = pressuredrop(1,Profile_P(5+3*c,DM_stage+1-j+1),Profile_P(1,DM_stage+1-j),v1,dz);    %New:j<50时对应后半段压力正常计算
+        else                                                                                                                    %New:j>50时对应前半段，压力为多少？
+            Profile_P(5+3*c,DM_stage+1-j) = 0;
+        end
         Profile_P(6+3*c,j) = pressuredrop(2,Profile_P(6+3*c,j-1),Profile_P(2,j),v2,dz); 
         
         %if Profile_P(5+3*c,DM_stage+1-j) >= Pf_DM
